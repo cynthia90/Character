@@ -183,10 +183,92 @@ BLYNK_WRITE(V3)
 
 BLYNK_WRITE(V4)
 {
-  // You can also use:
-  Serial.print("Music Play : ");
-  String i = param.asStr();
+  int i = param.asInt();
+  String num = param.asStr();
   Serial.println(i);
+  lcd.clear(); //Use it to clear the LCD Widget
+  lcd.print(4, 0, "Sound play");
+  lcd.print(3, 1, "Track Num ");
+  lcd.print(13, 1, i);
+  if ( i == 1) {
+    for (int i = 0; i < 5; i++) {
+      strip.setPixelColor(i, strip.Color(255, 0, 0));
+      strip.show();
+    }
+    mp3Serial.listen();
+    if (mp3Serial.isListening()) {
+      Serial.println("play");
+      mp3_play(1);
+      delay (4000);
+      mp3_stop();
+    }
+  } else if (i == 2) {
+    for (int i = 0; i < 5; i++) {
+      strip.setPixelColor(i, strip.Color(0, 255, 0));
+      strip.show();
+    }
+    mp3Serial.listen();
+    if (mp3Serial.isListening()) {
+      Serial.println("play");
+      mp3_play(2);
+      delay (4000);
+      mp3_stop();
+    }
+  } else if (i == 3) {
+    for (int i = 0; i < 5; i++) {
+      strip.setPixelColor(i, strip.Color(0, 0, 255));
+      strip.show();
+    }
+    mp3Serial.listen();
+    if (mp3Serial.isListening()) {
+      Serial.println("play");
+      mp3_play(3);
+      delay (4000);
+      mp3_stop();
+    }
+  } else if (i == 4) {
+    for (int i = 0; i < 5; i++) {
+      strip.setPixelColor(i, strip.Color(255, 255, 0));
+      strip.show();
+    }
+    mp3Serial.listen();
+    if (mp3Serial.isListening()) {
+      Serial.println("play");
+      mp3_play(4);
+      delay (7000);
+      mp3_stop();
+    }
+  } else if (i == 5) {
+    for (int i = 0; i < 5; i++) {
+      strip.setPixelColor(i, strip.Color(255, 0, 255));
+      strip.show();
+    }
+    mp3Serial.listen();
+    if (mp3Serial.isListening()) {
+      Serial.println("play");
+      mp3_play(5);
+      delay (5000);
+      mp3_stop();
+    }
+  } else if (i == 6) {
+    for (int i = 0; i < 5; i++) {
+      strip.setPixelColor(i, strip.Color(255, 255, 255));
+      strip.show();
+    }
+    mp3Serial.listen();
+    if (mp3Serial.isListening()) {
+      Serial.println("play");
+      mp3_play(6);
+      delay (5000);
+      mp3_stop();
+    }
+  }
+  for (int i = 0; i < 5; i++) {
+    strip.setPixelColor(i, strip.Color(0, 0, 0));
+    strip.show();
+  }
+  lcd.clear();
+  lcd.print(2, 0, "Select Track");
 }
 
 
