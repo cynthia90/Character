@@ -12,7 +12,7 @@
 #include <avr/power.h>
 #endif
 
-#define lightPin A1
+#define lightPin A0
 
 // You should get Auth Token in the Blynk App.
 // Go to the Project Settings (nut icon).
@@ -288,7 +288,7 @@ void setup()
   mp3Serial.begin(9600);
   mp3_set_serial (mp3Serial);
   delay(1);
-  mp3_set_volume (10);
+  mp3_set_volume (15);
   Serial.println("Waiting for connections...");
   lcd.clear(); //Use it to clear the LCD Widget
   lcd.print(2, 0, "Waiting for");
